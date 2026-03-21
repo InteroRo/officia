@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InteRo Property Development | Official Portfolio 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark-bg: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --white: #ffffff;
+            --soft-gray: #f4f4f4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
+
+        /* HEADER & ROMANIA FLAG */
+        header {
+            position: fixed; top: 0; width: 100%; height: 100px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.9);
+            border-bottom: 1px solid var(--gold);
+        }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .ro-flag { width: 40px; border: 1px solid white; }
+        .logo-container img { height: 50px; }
+        .nav-info { color: white; text-align: right; }
+        .nav-info b { color: var(--gold); display: block; font-size: 18px; }
+
+        /* HERO SECTION */
+        .hero-container {
+            position: relative; height: 100vh; display: flex; 
+            align-items: center; justify-content: center; overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=2000') center/cover no-repeat;
+        }
+        .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); }
+        .hero-content { text-align: center; color: white; z-index: 1; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 5rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 1.5rem; letter-spacing: 8px; text-transform: uppercase; color: var(--gold); }
+
+        /* INVESTMENT TICKER */
+        .ticker { background: var(--gold); color: black; padding: 10px 0; font-weight: 700; text-transform: uppercase; overflow: hidden; white-space: nowrap; }
+        .ticker-wrap { display: inline-block; animation: ticker 30s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* ABOUT SECTION */
+        .about-section { padding: 100px 10%; display: flex; gap: 50px; align-items: center; background: white; }
+        .about-text { flex: 1; }
+        .about-text h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; }
+        .about-img { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 20px 20px 0px var(--gold); }
+        .about-img img { width: 100%; display: block; }
+
+        /* PROPERTY GRID */
+        .section-padding { padding: 80px 5%; background: var(--soft-gray); }
+        .section-header { margin-bottom: 60px; text-align: center; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--dark-bg); }
+        
+        .prop-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 30px;
+        }
+
+        .prop-card {
+            background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s;
+            position: relative; border: 1px solid #ddd;
+        }
+        .prop-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        
+        .prop-img-box { 
+            height: 300px; overflow: hidden; position: relative; 
+            border-bottom: 4px solid var(--gold);
+        }
+        .prop-img-box img { 
+            width: 100%; height: 100%; object-fit: cover; filter: brightness(0.95) contrast(1.05);
+        }
+        .prop-img-box::after { 
+            content: '▶ Video Tur Virtual Disponibil'; 
+            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+            background: rgba(0,0,0,0.6); color: white; padding: 8px 16px; border-radius: 30px;
+            font-size: 0.9rem; font-weight: bold;
+        }
+
+        .price-tag {
+            position: absolute; top: 15px; right: 15px; background: var(--gold);
+            color: black; padding: 8px 15px; font-weight: 800; border-radius: 5px;
+            z-index: 5;
+        }
+
+        .prop-body { padding: 25px; }
+        .prop-body h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 10px; }
+        
+        .prop-contact-box {
+            margin-top: 15px; padding: 15px; background: #fdf6e9; border-left: 4px solid var(--gold);
+            font-size: 0.85rem;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials-section { padding: 80px 5%; background: white; text-align: center; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
+        .testimonial-card { background: var(--soft-gray); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .testimonial-card img { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; }
+        .testimonial-card p { font-style: italic; margin-bottom: 15px; }
+        .testimonial-card h4 { color: var(--gold); }
+
+        /* PARTNERSHIPS SECTION */
+        .partners-section { padding: 60px 5%; background: var(--dark-bg); color: white; text-align: center; }
+        .partners-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px; }
+        .partners-logos img { height: 60px; filter: brightness(0) invert(1); opacity: 0.8; }
+
+        /* YOUTUBE SECTION */
+        .video-container { 
+            background: var(--dark-bg); padding: 100px 5%; color: white; text-align: center;
+        }
+        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; }
+        .yt-frame-container { position: relative; border-radius: 15px; overflow: hidden; border: 2px solid var(--gold); }
+        iframe { width: 100%; height: 350px; display: block; }
+
+        /* CONTACT EXTRA SECTION */
+        .dm-notice {
+            background: var(--gold); color: black; padding: 40px; text-align: center;
+            margin: 50px 5%; border-radius: 15px; font-weight: 700;
+        }
+
+        /* MAP SECTION */
+        .map-section { height: 500px; width: 100%; border-top: 5px solid var(--gold); }
+
+        /* FOOTER */
+        footer { background: #000; color: white; padding: 60px 5%; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+        footer h4 { color: var(--gold); margin-bottom: 20px; font-size: 1.5rem; }
+
+        .action-bars { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .btn-pop {
+            padding: 18px 30px; border-radius: 50px; text-decoration: none; color: white;
+            font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .btn-wa { background: #25D366; }
+        .btn-gm { background: #d44638; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="https://flagcdn.com/w80/ro.png" class="ro-flag" alt="Romania">
+            <div class="logo-container">
+                <img src="https://intero.ro/storage/app/media/logo/intero-logo.png" alt="INTERO">
+            </div>
+        </div>
+        <div class="nav-info">
+            Contact Direct: <b>+40 731 291 444</b>
+        </div>
+    </header>
+
+    <section class="hero-container">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p>BIROURI • REZIDENȚIAL • INVESTIȚII</p>
+            <h1>Imobiliare de Elită</h1>
+        </div>
+    </section>
+
+    <div class="ticker">
+        <div class="ticker-wrap">
+            +++ SKYLIGHT RESIDENCE: 85% SOLD OUT +++ PAJUREI 3: NEW PHASE RELEASED +++ INVESTMENT OPPORTUNITY: 12% ANNUAL RETURN +++ SUNLIGHT RESIDENCE: DELIVERY 2025 +++ 
+        </div>
+    </div>
+
+    <section class="about-section">
+        <div class="about-text">
+            <h2>Familia Topolinski</h2>
+            <p>Cu o experiență de peste 20 de ani în dezvoltări imobiliare, familia Topolinski a transformat InteRo într-un simbol al calității și luxului în România. Viziunea noastră este să construim nu doar clădiri, ci comunități durabile pentru viitorul Bucureștiului.</p>
+        </div>
+        <div class="about-img">
+            <img src="https://intero.ro/wp-content/uploads/2021/03/team-img.jpg" alt="InteRo Team">
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="section-header">
+            <h2>Portofoliu Premium & Investiții</h2>
+        </div>
+
+        <div class="prop-grid">
+            <div class="prop-card">
+                <div class="price-tag">€2,500,000</div>
+                <div class="prop-img-box"><img src="https://tinyurl.com/5n8u6tdu" alt="Penthouse"></div>
+                <div class="prop-body">
+                    <h3>Penthouse Elite Pipera</h3>
+                    <p>Vedere panoramică, piscină privată pe terasă, 500mp de lux absolut.</p>
+                    <div class="prop-contact-box">📞 +40 731 291 444 | ✉️ office.intero.ro@gmail.com</div>
+                </div>
+            </div>
+
+            <div class="prop-card">
+                <div class="price-tag">€1,850,000</div>
+                <div class="prop-img-box"><img src="https://tinyurl.com/2r6p5y79" alt="Villa"></div>
+                <div class="prop-body">
+                    <h3>Vila Luxury Nordului</h3>
+                    <p>Design minimalist, finisaje de marmură, grădină japoneză și smart-home.</p>
+                    <div class="prop-contact-box">📞 +40 731 291 444 | ✉️ office.intero.ro@gmail.com</div>
+                </div>
+            </div>
+
+            <script>
+                const extraProps = [
+                    // LANDS
+                    { t: "Teren Investiție Strategic", p: "La Cerere", i: "https://tinyurl.com/2js88pj9" },
+                    { t: "Parcelă Industrială Centură", p: "€1,200,000", i: "https://tinyurl.com/5n7ta96n" },
+                    { t: "Teren Rezidențial Nord", p: "€850,000", i: "https://tinyurl.com/25czteud" },
+                    { t: "Lot Construcții Premium", p: "€450,000", i: "https://tinyurl.com/mrzzvm84" },
+                    
+                    // HOTELS
+                    { t: "Clădire Hotelieră Centrală", p: "€4,500,000", i: "https://tinyurl.com/2u6uxauy" },
+                    { t: "Boutique Hotel Concept", p: "€3,200,000", i: "https://tinyurl.com/ymmhft4c" },
+                    { t: "Hotel Business District", p: "€6,800,000", i: "https://tinyurl.com/ysjxxp55" },
+                    { t: "Complex Turistic Elite", p: "€5,100,000", i: "https://tinyurl.com/4mpuahpk" },
+                    { t: "Luxury Accommodation Hub", p: "€2,900,000", i: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxphdxAxGchqgWBygVXvTb-Bq-tFGy2sViug&s" },
+
+                    // HOUSES & APARTMENTS
+                    { t: "Loft Centrul Vechi", p: "€450,000", i: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&fit=crop" },
+                    { t: "SkyLight Mansion", p: "€1,200,000", i: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&fit=crop" },
+                    { t: "Green Lake House", p: "€880,000", i: "https://images.unsplash.com/photo-1512915920307-446f1ba438f0?q=80&w=800&fit=crop" }
+                ];
+                const grid = document.querySelector('.prop-grid');
+                extraProps.forEach(item => {
+                    grid.innerHTML += `
+                    <div class="prop-card">
+                        <div class="price-tag">${item.p}</div>
+                        <div class="prop-img-box"><img src="${item.i}" alt="${item.t}"></div>
+                        <div class="prop-body">
+                            <h3>${item.t}</h3>
+                            <p>Proprietate exclusivistă din portofoliul InteRo Elite. Detalii tehnice și video tur la cerere.</p>
+                            <div class="prop-contact-box">📞 +40 731 291 444 | ✉️ office.intero.ro@gmail.com</div>
+                        </div>
+                    </div>`;
+                });
+            </script>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2>Ce Spun Clienții Noștri</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200" alt="Client">
+                <p>"Am cumpărat o vilă prin InteRo - proces profesionist, imagini reale și sfaturi excelente!"</p>
+                <h4>Andrei Popescu, București</h4>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200" alt="Client">
+                <p>"Găsit casa tradițională visurilor mele. Preț corect, totul transparent."</p>
+                <h4>Maria Ionescu, Snagov</h4>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200" alt="Client">
+                <p>"Investiție excelentă în teren - sfaturi bune pentru construcție neterminată."</p>
+                <h4>George Vasilescu, Ilfov</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <h2>Parteneri de Încredere</h2>
+        <div class="partners-logos">
+            <img src="https://via.placeholder.com/150x60?text=Banca+Transilvania" alt="Banca Transilvania">
+            <img src="https://via.placeholder.com/150x60?text=BRD" alt="BRD">
+            <img src="https://via.placeholder.com/150x60?text=Strabag" alt="Strabag">
+            <img src="https://via.placeholder.com/150x60?text=Porotherm" alt="Porotherm">
+            <img src="https://via.placeholder.com/150x60?text=Rockwool" alt="Rockwool">
+        </div>
+    </section>
+
+    <div class="dm-notice">
+        THERE ARE STILL MANY OTHER PROPERTIES EVEN BUILDINGS FOR HOTELS! <br>
+        WE WILL SEND YOU IMAGES DIRECTLY - DM US NOW OR CALL.
+    </div>
+
+    <section class="video-container">
+        <h2>Video & Media Tour</h2>
+        <div class="video-grid">
+            <div class="yt-frame-container">
+                <iframe src="https://www.youtube.com/embed/Hw3iDqatDl4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="yt-frame-container">
+                <iframe src="https://www.youtube.com/embed/6VeyiAG5TjQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d182285.4746687063!2d25.964408605054174!3d44.4377317730962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1f93ab6255845%3A0xd67ad9e0162a77d4!2sBucharest!5e0!3m2!1sen!2sro!4v1700000000000!5m2!1sen!2sro" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <footer>
+        <div>
+            <h4>InteRo Elite</h4>
+            <p>Dezvoltator de top în România, dedicat excelenței în construcții și design.</p>
+        </div>
+        <div>
+            <h4>Link-uri</h4>
+            <p>Proiecte</p>
+            <p>Investitori</p>
+            <p>Cariere</p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>Equilibrium Business Center, București</p>
+            <p><b>office.intero.ro@gmail.com</b></p>
+            <p><b>+40 731 291 444</b></p>
+        </div>
+    </footer>
+
+    <div class="action-bars">
+        <a href="https://wa.me/40731291444" class="btn-pop btn-wa">WHATSAPP ASISTENȚĂ</a>
+        <a href="mailto:office.intero.ro@gmail.com" class="btn-pop btn-gm">SOLICITĂ OFERTĂ</a>
+    </div>
+
+</body>
+</html>
