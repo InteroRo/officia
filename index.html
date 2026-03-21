@@ -19,16 +19,16 @@
 
         /* HEADER & ROMANIA FLAG */
         header {
-            position: fixed; top: 0; width: 100%; height: 100px;
+            position: fixed; top: 0; width: 100%; height: 80px;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.9);
+            padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.95);
             border-bottom: 1px solid var(--gold);
         }
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .ro-flag { width: 40px; border: 1px solid white; }
-        .logo-container img { height: 50px; }
-        .nav-info { color: white; text-align: right; }
-        .nav-info b { color: var(--gold); display: block; font-size: 18px; }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .ro-flag { width: 30px; border: 1px solid white; }
+        .logo-container img { height: 40px; width: auto; max-width: 120px; object-fit: contain; }
+        .nav-info { color: white; text-align: right; font-size: 14px; }
+        .nav-info b { color: var(--gold); display: block; font-size: 16px; }
 
         /* HERO SECTION */
         .hero-container {
@@ -37,29 +37,29 @@
             background: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=2000') center/cover no-repeat;
         }
         .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); }
-        .hero-content { text-align: center; color: white; z-index: 1; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 5rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero-content p { font-size: 1.5rem; letter-spacing: 8px; text-transform: uppercase; color: var(--gold); }
+        .hero-content { text-align: center; color: white; z-index: 1; padding: 20px; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
 
         /* INVESTMENT TICKER */
-        .ticker { background: var(--gold); color: black; padding: 10px 0; font-weight: 700; text-transform: uppercase; overflow: hidden; white-space: nowrap; }
-        .ticker-wrap { display: inline-block; animation: ticker 30s linear infinite; }
+        .ticker { background: var(--gold); color: black; padding: 12px 0; font-weight: 700; text-transform: uppercase; overflow: hidden; white-space: nowrap; }
+        .ticker-wrap { display: inline-block; animation: ticker 40s linear infinite; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         /* ABOUT SECTION */
-        .about-section { padding: 100px 10%; display: flex; gap: 50px; align-items: center; background: white; }
-        .about-text { flex: 1; }
-        .about-text h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; }
-        .about-img { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 20px 20px 0px var(--gold); }
-        .about-img img { width: 100%; display: block; }
+        .about-section { padding: 80px 5%; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; background: white; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
+        .about-img { flex: 1; min-width: 300px; border-radius: 20px; overflow: hidden; box-shadow: 15px 15px 0px var(--gold); }
+        .about-img img { width: 100%; height: auto; display: block; }
 
         /* PROPERTY GRID */
-        .section-padding { padding: 80px 5%; background: var(--soft-gray); }
-        .section-header { margin-bottom: 60px; text-align: center; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--dark-bg); }
+        .section-padding { padding: 60px 5%; background: var(--soft-gray); }
+        .section-header { margin-bottom: 40px; text-align: center; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--dark-bg); }
         
         .prop-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;
         }
 
         .prop-card {
@@ -70,7 +70,7 @@
         .prop-card:hover { transform: translateY(-10px); border-color: var(--gold); }
         
         .prop-img-box { 
-            height: 300px; overflow: hidden; position: relative; 
+            height: 280px; overflow: hidden; position: relative; 
             border-bottom: 4px solid var(--gold);
         }
         .prop-img-box img { 
@@ -79,166 +79,77 @@
         .prop-img-box::after { 
             content: '▶ Video Tur Virtual Disponibil'; 
             position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-            background: rgba(0,0,0,0.6); color: white; padding: 8px 16px; border-radius: 30px;
-            font-size: 0.9rem; font-weight: bold;
+            background: rgba(0,0,0,0.7); color: white; padding: 6px 14px; border-radius: 30px;
+            font-size: 0.8rem; font-weight: bold; width: max-content;
         }
 
         .price-tag {
             position: absolute; top: 15px; right: 15px; background: var(--gold);
             color: black; padding: 8px 15px; font-weight: 800; border-radius: 5px;
-            z-index: 5;
+            z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .prop-body { padding: 25px; }
-        .prop-body h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 10px; }
+        .prop-body { padding: 20px; }
+        .prop-body h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 10px; }
         
         .prop-contact-box {
-            margin-top: 15px; padding: 15px; background: #fdf6e9; border-left: 4px solid var(--gold);
-            font-size: 0.85rem;
+            margin-top: 15px; padding: 12px; background: #fdf6e9; border-left: 4px solid var(--gold);
+            font-size: 0.8rem; word-break: break-all;
         }
 
         /* TESTIMONIALS SECTION */
-        .testimonials-section { padding: 80px 5%; background: white; text-align: center; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
-        .testimonial-card { background: var(--soft-gray); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .testimonial-card img { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; }
-        .testimonial-card p { font-style: italic; margin-bottom: 15px; }
+        .testimonials-section { padding: 60px 5%; background: white; text-align: center; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .testimonial-card { background: var(--soft-gray); padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .testimonial-card img { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; border: 2px solid var(--gold); }
+        .testimonial-card p { font-style: italic; margin-bottom: 15px; font-size: 0.95rem; }
         .testimonial-card h4 { color: var(--gold); }
 
         /* PARTNERSHIPS SECTION */
-        .partners-section { padding: 60px 5%; background: var(--dark-bg); color: white; text-align: center; }
-        .partners-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px; }
-        .partners-logos img { height: 60px; filter: brightness(0) invert(1); opacity: 0.8; }
+        .partners-section { padding: 50px 5%; background: var(--dark-bg); color: white; text-align: center; }
+        .partners-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
+        .partners-logos img { height: 40px; filter: brightness(0) invert(1); opacity: 0.7; }
 
         /* YOUTUBE SECTION */
         .video-container { 
-            background: var(--dark-bg); padding: 100px 5%; color: white; text-align: center;
+            background: var(--dark-bg); padding: 80px 5%; color: white; text-align: center;
         }
-        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; }
-        .yt-frame-container { position: relative; border-radius: 15px; overflow: hidden; border: 2px solid var(--gold); }
-        iframe { width: 100%; height: 350px; display: block; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .yt-frame-container { position: relative; border-radius: 15px; overflow: hidden; border: 2px solid var(--gold); background: #000; }
+        iframe { width: 100%; height: 250px; display: block; border: 0; }
 
         /* CONTACT EXTRA SECTION */
         .dm-notice {
-            background: var(--gold); color: black; padding: 40px; text-align: center;
-            margin: 50px 5%; border-radius: 15px; font-weight: 700;
+            background: var(--gold); color: black; padding: 30px 15px; text-align: center;
+            margin: 40px 5%; border-radius: 15px; font-weight: 700; font-size: 1.1rem;
         }
 
         /* MAP SECTION */
-        .map-section { height: 500px; width: 100%; border-top: 5px solid var(--gold); }
+        .map-section { height: 400px; width: 100%; border-top: 5px solid var(--gold); }
 
         /* FOOTER */
-        footer { background: #000; color: white; padding: 60px 5%; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
-        footer h4 { color: var(--gold); margin-bottom: 20px; font-size: 1.5rem; }
+        footer { background: #000; color: white; padding: 50px 5%; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
+        footer div { flex: 1; min-width: 250px; }
+        footer h4 { color: var(--gold); margin-bottom: 20px; font-size: 1.3rem; }
+        footer p { font-size: 0.9rem; opacity: 0.8; }
 
-        .action-bars { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .action-bars { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9999; }
         .btn-pop {
-            padding: 18px 30px; border-radius: 50px; text-decoration: none; color: white;
-            font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s;
-            display: flex; align-items: center; gap: 12px;
+            padding: 12px 20px; border-radius: 50px; text-decoration: none; color: white;
+            font-weight: 700; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s;
+            display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
         }
         .btn-wa { background: #25D366; }
         .btn-gm { background: #d44638; }
-        /* GLOBAL IMAGE FIX */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
 
-/* PROPERTY IMAGE IMPROVEMENT */
-.prop-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.prop-card:hover .prop-img-box img {
-    transform: scale(1.08);
-}
-.prop-img-box {
-    cursor: pointer;
-}
-
-.prop-img-box::after {
-    content: '▶ Watch Video Tour';
-    font-size: 0.85rem;
-    backdrop-filter: blur(5px);
-}
-/* ENSURE IMAGES NEVER BREAK */
-img[src=""],
-img:not([src]) {
-    background: #eee;
-    min-height: 200px;
-}
-/* MOBILE OPTIMIZATION */
-@media (max-width: 768px) {
-
-    header {
-        height: auto;
-        flex-direction: column;
-        padding: 15px;
-        text-align: center;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 0.9rem;
-        letter-spacing: 3px;
-    }
-
-    .about-section {
-        flex-direction: column;
-        padding: 60px 5%;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-    }
-
-    .prop-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .prop-img-box {
-        height: 220px;
-    }
-
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-
-    iframe {
-        height: 220px;
-    }
-
-    footer {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .action-bars {
-        bottom: 15px;
-        right: 15px;
-    }
-
-    .btn-pop {
-        padding: 12px 18px;
-        font-size: 0.8rem;
-    }
-}
-img {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-img.loaded {
-    opacity: 1;
-}
+        /* MOBILE OVERRIDES */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .header-left .logo-container img { height: 35px; }
+            .nav-info { display: none; } /* Hide phone in header for cleaner mobile look, use floating buttons instead */
+            header { height: 70px; }
+            .about-section { padding-top: 100px; }
+        }
     </style>
 </head>
 <body>
@@ -307,23 +218,18 @@ img.loaded {
 
             <script>
                 const extraProps = [
-                    // LANDS
                     { t: "Teren Investiție Strategic", p: "La Cerere", i: "https://tinyurl.com/2js88pj9" },
                     { t: "Parcelă Industrială Centură", p: "€1,200,000", i: "https://tinyurl.com/5n7ta96n" },
                     { t: "Teren Rezidențial Nord", p: "€850,000", i: "https://tinyurl.com/25czteud" },
                     { t: "Lot Construcții Premium", p: "€450,000", i: "https://tinyurl.com/mrzzvm84" },
-                    
-                    // HOTELS
                     { t: "Clădire Hotelieră Centrală", p: "€4,500,000", i: "https://tinyurl.com/2u6uxauy" },
                     { t: "Boutique Hotel Concept", p: "€3,200,000", i: "https://tinyurl.com/ymmhft4c" },
                     { t: "Hotel Business District", p: "€6,800,000", i: "https://tinyurl.com/ysjxxp55" },
                     { t: "Complex Turistic Elite", p: "€5,100,000", i: "https://tinyurl.com/4mpuahpk" },
                     { t: "Luxury Accommodation Hub", p: "€2,900,000", i: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxphdxAxGchqgWBygVXvTb-Bq-tFGy2sViug&s" },
-
-                    // HOUSES & APARTMENTS
-                    { t: "Loft Centrul Vechi", p: "€450,000", i: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&fit=crop" },
-                    { t: "SkyLight Mansion", p: "€1,200,000", i: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&fit=crop" },
-                    { t: "Green Lake House", p: "€880,000", i: "https://images.unsplash.com/photo-1512915920307-446f1ba438f0?q=80&w=800&fit=crop" }
+                    { t: "Loft Centrul Vechi", p: "€450,000", i: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800" },
+                    { t: "SkyLight Mansion", p: "€1,200,000", i: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800" },
+                    { t: "Green Lake House", p: "€880,000", i: "https://images.unsplash.com/photo-1512915920307-446f1ba438f0?q=80&w=800" }
                 ];
                 const grid = document.querySelector('.prop-grid');
                 extraProps.forEach(item => {
@@ -385,16 +291,16 @@ img.loaded {
         <h2>Video & Media Tour</h2>
         <div class="video-grid">
             <div class="yt-frame-container">
-                <iframe src="https://www.youtube.com/embed/Hw3iDqatDl4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Hw3iDqatDl4" allowfullscreen></iframe>
             </div>
             <div class="yt-frame-container">
-                <iframe src="https://www.youtube.com/embed/6VeyiAG5TjQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/6VeyiAG5TjQ" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
     <section class="map-section">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d182285.4746687063!2d25.964408605054174!3d44.4377317730962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1f93ab6255845%3A0xd67ad9e0162a77d4!2sBucharest!5e0!3m2!1sen!2sro!4v1700000000000!5m2!1sen!2sro" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.831580190547!2d26.1044321!3d44.4363242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff3940177309%3A0xc67498c48405d1!2sBucharest!5e0!3m2!1sen!2sro!4v1641234567890!5m2!1sen!2sro" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <footer>
@@ -420,12 +326,6 @@ img.loaded {
         <a href="https://wa.me/40731291444" class="btn-pop btn-wa">WHATSAPP ASISTENȚĂ</a>
         <a href="mailto:office.intero.ro@gmail.com" class="btn-pop btn-gm">SOLICITĂ OFERTĂ</a>
     </div>
-<script>
-document.querySelectorAll("img").forEach(img => {
-    img.onload = () => {
-        img.classList.add("loaded");
-    };
-});
-</script>
+
 </body>
 </html>
