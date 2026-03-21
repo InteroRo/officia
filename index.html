@@ -139,6 +139,106 @@
         }
         .btn-wa { background: #25D366; }
         .btn-gm { background: #d44638; }
+        /* GLOBAL IMAGE FIX */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* PROPERTY IMAGE IMPROVEMENT */
+.prop-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.prop-card:hover .prop-img-box img {
+    transform: scale(1.08);
+}
+.prop-img-box {
+    cursor: pointer;
+}
+
+.prop-img-box::after {
+    content: '▶ Watch Video Tour';
+    font-size: 0.85rem;
+    backdrop-filter: blur(5px);
+}
+/* ENSURE IMAGES NEVER BREAK */
+img[src=""],
+img:not([src]) {
+    background: #eee;
+    min-height: 200px;
+}
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+    header {
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+
+    .about-section {
+        flex-direction: column;
+        padding: 60px 5%;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .prop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prop-img-box {
+        height: 220px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    iframe {
+        height: 220px;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .action-bars {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .btn-pop {
+        padding: 12px 18px;
+        font-size: 0.8rem;
+    }
+}
+img {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}
     </style>
 </head>
 <body>
@@ -320,6 +420,12 @@
         <a href="https://wa.me/40731291444" class="btn-pop btn-wa">WHATSAPP ASISTENȚĂ</a>
         <a href="mailto:office.intero.ro@gmail.com" class="btn-pop btn-gm">SOLICITĂ OFERTĂ</a>
     </div>
-
+<script>
+document.querySelectorAll("img").forEach(img => {
+    img.onload = () => {
+        img.classList.add("loaded");
+    };
+});
+</script>
 </body>
 </html>
