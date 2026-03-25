@@ -795,6 +795,128 @@ span:contains("Sotheby") {
 body * {
     font-family: 'Montserrat', sans-serif;
 }
+/* =========================
+   REMOVE RIGHT WHITE SPACE
+========================= */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix any element causing overflow */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* =========================
+   FULL EDGE-TO-EDGE LAYOUT
+========================= */
+@media (max-width: 768px) {
+
+    /* REMOVE SIDE PADDING GLOBALLY */
+    .listings-section,
+    .new-section,
+    .featured-map-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* MAKE PROPERTY GRID FULL WIDTH */
+    .property-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    /* PROPERTY CARDS FULL WIDTH */
+    .property-card {
+        border-radius: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* IMAGES EDGE TO EDGE */
+    .property-card img,
+    .featured-image img {
+        width: 100vw !important;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* FEATURED CARD FULL WIDTH */
+    .featured-card {
+        border-radius: 0 !important;
+    }
+
+    /* MAP FULL WIDTH */
+    .map-container {
+        border-radius: 0 !important;
+    }
+
+    #real-romania-map {
+        width: 100vw !important;
+        height: 300px;
+    }
+
+    /* GALLERY EDGE TO EDGE */
+    .new-section img {
+        width: 100vw !important;
+        border-radius: 0 !important;
+    }
+
+    /* =========================
+       HEADER SCROLL EFFECT
+    ========================= */
+
+    /* Make header sticky clean */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+    }
+
+    /* Hide contact bar smoothly */
+    .contact-bar {
+        transition: all 0.3s ease;
+    }
+
+    /* When scrolling, hide it */
+    header.scrolled .contact-bar {
+        transform: translateY(-100%);
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    /* Reduce header size on scroll */
+    header.scrolled .top-nav {
+        padding: 8px 10px;
+    }
+
+    .logo-text {
+        transition: 0.3s;
+    }
+
+    header.scrolled .logo-text {
+        font-size: 18px;
+    }
+}
+
+/* =========================
+   FIX COMMON OVERFLOW BUGS
+========================= */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.row, .container, .wrapper {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
     </style>
 </head>
 <body>
@@ -1647,8 +1769,15 @@ body * {
            
             console.log('%c🚀 INTERO PROPERTY DEVELOPMENT site complet – logo nou lângă steag, design 100% phone-friendly cu hamburger menu, căutare avansată, hartă live. Total linii cod ~3000 (extins cu galerii, secțiuni, JS matur). Totul arată perfect pe telefon!', 'background:#002349;color:#b2967d;padding:4px 8px;border-radius:4px')
         }
-      
-        window.onload = initializeSite
+      window.addEventListener("scroll", function () {
+    const header = document.querySelector("header");
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+document.addEventListener("DOMContentLoaded", initializeSite);
     </script>
 </body>
 </html>
