@@ -659,6 +659,79 @@
             }
             nav ul.active { display: flex; }
         }
+        /* --- Advanced Mobile Optimization --- */
+@media (max-width: 480px) {
+    /* Adjust Header for Mobile */
+    .top-nav {
+        padding: 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-text {
+        font-size: 18px; /* Smaller text for narrow screens */
+    }
+
+    /* Adjust Search Bar */
+    .hero-search {
+        height: 350px;
+        padding: 0 20px;
+    }
+
+    .hero-search h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .search-container {
+        width: 100%;
+        flex-direction: column; /* Stack input and button */
+        gap: 10px;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .search-container input {
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    .search-btn {
+        width: 100%;
+        padding: 15px;
+        border-radius: 4px;
+    }
+
+    /* Adjust Property Cards for single-column scroll */
+    .listings-section {
+        padding: 40px 15px;
+    }
+
+    .property-grid {
+        grid-template-columns: 1fr !important; /* Forces one card per row */
+        gap: 25px;
+    }
+
+    .img-wrapper {
+        height: 220px; /* Shorter images for mobile scrolling */
+    }
+
+    .property-info h3 {
+        font-size: 18px;
+    }
+
+    /* Adjust Footer */
+    .footer-content {
+        grid-template-columns: 1fr; /* Stack footer sections */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .floating-contact {
+        bottom: 20px;
+        right: 20px;
+    }
+}
     </style>
 </head>
 <body>
